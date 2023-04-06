@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/open.png</file>
+        <file>icons/exit.png</file>
+        <file>icons/save.svg</file>
+        <file>icons/export.svg</file>
+        <file>icons/edit_move.svg</file>
+        <file>icons/place_rect.svg</file>
+        <file>icons/resize_x.svg</file>
+        <file>icons/resize_xy.svg</file>
+        <file>icons/resize_y.svg</file>
+        <file>icons/zoom_in.svg</file>
+        <file>icons/zoom_out.svg</file>
+        <file>icons/eraser.svg</file>
+        <file>icons/ellipse.svg</file>
+        <file>icons/gears.svg</file>
+        <file>icons/adjust.svg</file>
+        <file>icons/camera.svg</file>
+        <file>icons/2d.svg</file>
+        <file>icons/obj_select.svg</file>
+    </qresource>
+</RCC>

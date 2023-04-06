@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>787</width>
+    <height>507</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="GraphicsView" name="graphicsView"/>
+      <widget class="QTableView" name="tableView_signal">
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>787</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menufile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionopen"/>
+    <addaction name="actionSave_current_image"/>
+    <addaction name="actionExport"/>
+    <addaction name="actionexit"/>
+   </widget>
+   <widget class="QMenu" name="menuview">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionBackground"/>
+    <addaction name="actionOutline"/>
+    <addaction name="separator"/>
+    <addaction name="actiontransform"/>
+    <addaction name="actionzoom_in_canvas"/>
+    <addaction name="actionzoom_out_canvas"/>
+   </widget>
+   <widget class="QMenu" name="menuRender">
+    <property name="title">
+     <string>Renderer</string>
+    </property>
+    <addaction name="actionNative"/>
+    <addaction name="actionOpenGL"/>
+    <addaction name="actionImage"/>
+    <addaction name="separator"/>
+    <addaction name="actionHigh_quality"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionhelp"/>
+    <addaction name="separator"/>
+    <addaction name="actionabout"/>
+    <addaction name="actionAbout_QT"/>
+   </widget>
+   <widget class="QMenu" name="menuedit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionresize_x"/>
+    <addaction name="actionresize_y"/>
+    <addaction name="actionresize_x_y"/>
+    <addaction name="separator"/>
+    <addaction name="actionplace_rectangle"/>
+    <addaction name="actionPlace_ellipse"/>
+    <addaction name="actionedit_rectangle"/>
+    <addaction name="actionErase_rectangle"/>
+   </widget>
+   <widget class="QMenu" name="menuRun">
+    <property name="title">
+     <string>Run</string>
+    </property>
+    <addaction name="actionProcess"/>
+    <addaction name="actionSet_Parameters"/>
+    <addaction name="actionOpen_Camera"/>
+    <addaction name="actionAuto_Select_Object"/>
+   </widget>
+   <addaction name="menufile"/>
+   <addaction name="menuedit"/>
+   <addaction name="menuRun"/>
+   <addaction name="menuview"/>
+   <addaction name="menuRender"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionopen"/>
+   <addaction name="actionSave_current_image"/>
+   <addaction name="actionExport"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionedit_rectangle"/>
+   <addaction name="actionplace_rectangle"/>
+   <addaction name="actionPlace_ellipse"/>
+   <addaction name="actionErase_rectangle"/>
+   <addaction name="separator"/>
+   <addaction name="actionresize_x_y"/>
+   <addaction name="actionresize_x"/>
+   <addaction name="actionresize_y"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_2">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionzoom_in_canvas"/>
+   <addaction name="actionzoom_out_canvas"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_3">
+   <property name="windowTitle">
+    <string>toolBar_3</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionProcess"/>
+   <addaction name="actionSet_Parameters"/>
+   <addaction name="actionOpen_Camera"/>
+   <addaction name="actionAuto_Select_Object"/>
+  </widget>
+  <action name="actionopen">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/open.png</normaloff>:/icons/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionexit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionBackground">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Background</string>
+   </property>
+  </action>
+  <action name="actionOutline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Outline</string>
+   </property>
+  </action>
+  <action name="actionNative">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Native</string>
+   </property>
+  </action>
+  <action name="actionOpenGL">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>OpenGL</string>
+   </property>
+  </action>
+  <action name="actionImage">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Image</string>
+   </property>
+  </action>
+  <action name="actionHigh_quality">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>High quality antialiasing</string>
+   </property>
+  </action>
+  <action name="actionAbout_QT">
+   <property name="text">
+    <string>About QT</string>
+   </property>
+  </action>
+  <action name="actionGray">
+   <property name="text">
+    <string>Gray</string>
+   </property>
+  </action>
+  <action name="actionMono">
+   <property name="text">
+    <string>Mono</string>
+   </property>
+  </action>
+  <action name="actionOriginal">
+   <property name="text">
+    <string>Original</string>
+   </property>
+  </action>
+  <action name="actionCanny">
+   <property name="text">
+    <string>Canny</string>
+   </property>
+  </action>
+  <action name="actionSobel">
+   <property name="text">
+    <string>Sobel</string>
+   </property>
+  </action>
+  <action name="actionMono_gray">
+   <property name="text">
+    <string>Mono gray</string>
+   </property>
+  </action>
+  <action name="actionbox_filter">
+   <property name="text">
+    <string>Box filter</string>
+   </property>
+  </action>
+  <action name="actionBlur_filter">
+   <property name="text">
+    <string>Blur filter</string>
+   </property>
+  </action>
+  <action name="actionGauss_blur_filter">
+   <property name="text">
+    <string>Gauss blur filter</string>
+   </property>
+  </action>
+  <action name="actionMedian_blur_filter">
+   <property name="text">
+    <string>Median blur filter</string>
+   </property>
+  </action>
+  <action name="actionBilateral_filter">
+   <property name="text">
+    <string>Bilateral filter</string>
+   </property>
+  </action>
+  <action name="actionSave_current_image">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/save.svg</normaloff>:/icons/save.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Save current image</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/export.svg</normaloff>:/icons/export.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="actionRotate">
+   <property name="text">
+    <string>Rotate</string>
+   </property>
+  </action>
+  <action name="actionresize_x">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/resize_x.svg</normaloff>:/icons/resize_x.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Resize x</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+X</string>
+   </property>
+  </action>
+  <action name="actionresize_y">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/resize_y.svg</normaloff>:/icons/resize_y.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Resize y</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+Y</string>
+   </property>
+  </action>
+  <action name="actionresize_x_y">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/resize_xy.svg</normaloff>:/icons/resize_xy.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Resize x and y</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+Z</string>
+   </property>
+  </action>
+  <action name="actionplace_rectangle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/place_rect.svg</normaloff>:/icons/place_rect.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Place rectangle</string>
+   </property>
+   <property name="shortcut">
+    <string>P</string>
+   </property>
+  </action>
+  <action name="actionedit_rectangle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/edit_move.svg</normaloff>:/icons/edit_move.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Edit rectangle</string>
+   </property>
+   <property name="shortcut">
+    <string>E</string>
+   </property>
+  </action>
+  <action name="actionzoom_in_canvas">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/zoom_in.svg</normaloff>:/icons/zoom_in.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom in canvas</string>
+   </property>
+   <property name="shortcut">
+    <string>+</string>
+   </property>
+  </action>
+  <action name="actionzoom_out_canvas">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/zoom_out.svg</normaloff>:/icons/zoom_out.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom out canvas</string>
+   </property>
+   <property name="shortcut">
+    <string>-</string>
+   </property>
+  </action>
+  <action name="actionabout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionhelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="actionErase_rectangle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/eraser.svg</normaloff>:/icons/eraser.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Erase rectangle</string>
+   </property>
+  </action>
+  <action name="actionPlace_ellipse">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/ellipse.svg</normaloff>:/icons/ellipse.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Place ellipse</string>
+   </property>
+  </action>
+  <action name="actionProcess">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/gears.svg</normaloff>:/icons/gears.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Process</string>
+   </property>
+  </action>
+  <action name="actionSet_Parameters">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/adjust.svg</normaloff>:/icons/adjust.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Set Parameters</string>
+   </property>
+   <property name="toolTip">
+    <string>Set Parameters</string>
+   </property>
+  </action>
+  <action name="actionOpen_Camera">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/camera.svg</normaloff>:/icons/camera.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Open Camera</string>
+   </property>
+  </action>
+  <action name="actiontransform">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>transform</string>
+   </property>
+  </action>
+  <action name="actionAuto_Select_Object">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/obj_select.svg</normaloff>:/icons/obj_select.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Auto Select Object</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>GraphicsView.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
